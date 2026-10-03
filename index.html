@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RBX Império | Área de Vendas</title>
+  <meta name="description" content="Conheça o RBX Império, veja demonstrações, jogos em destaque, feedbacks e fale com nosso suporte.">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(122,52,255,.18), transparent 28%),
+        radial-gradient(circle at 90% 25%, rgba(157,78,221,.12), transparent 25%),
+        #07070b;
+      color:#fff;
+      line-height:1.5;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button{
+      font-family:inherit;
+    }
+
+    .container{
+      width:min(1180px, 92%);
+      margin:auto;
+    }
+
+    /* NAV */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(7,7,11,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:21px;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+
+    .logo span{
+      color:#a855f7;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:14px;
+      color:#bbb;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .nav-buy{
+      background:linear-gradient(135deg,#7c3aed,#a855f7);
+      color:#fff !important;
+      padding:11px 19px;
+      border-radius:12px;
+      font-weight:800;
+      box-shadow:0 8px 30px rgba(124,58,237,.25);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:680px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      opacity:.42;
+    }
+
+    .hero-bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(.9);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(5,5,9,.98) 0%,rgba(5,5,9,.82) 42%,rgba(5,5,9,.48) 100%),
+        linear-gradient(0deg,#07070b 0%,transparent 45%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:760px;
+      padding:100px 0;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(168,85,247,.4);
+      background:rgba(124,58,237,.12);
+      color:#d8b4fe;
+      padding:8px 13px;
+      border-radius:100px;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+
+    .hero h1{
+      font-size:clamp(42px,7vw,78px);
+      line-height:.98;
+      letter-spacing:-3px;
+      margin-bottom:24px;
+    }
+
+    .hero h1 span{
+      background:linear-gradient(90deg,#a855f7,#e879f9);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:640px;
+      color:#c7c7cf;
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      min-height:52px;
+      padding:0 24px;
+      border-radius:13px;
+      font-weight:900;
+      font-size:15px;
+      transition:.2s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      color:white;
+      background:linear-gradient(135deg,#7c3aed,#a855f7);
+      box-shadow:0 12px 40px rgba(124,58,237,.32);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+    }
+
+    /* TRUST BAR */
+
+    .trust{
+      border-bottom:1px solid rgba(255,255,255,.07);
+      background:#0b0b11;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .trust-item{
+      padding:24px 15px;
+      text-align:center;
+      border-right:1px solid rgba(255,255,255,.07);
+    }
+
+    .trust-item:last-child{
+      border-right:0;
+    }
+
+    .trust-item strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    .trust-item span{
+      color:#888894;
+      font-size:13px;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-tag{
+      color:#a855f7;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      font-size:clamp(32px,5vw,52px);
+      line-height:1.05;
+      letter-spacing:-1.5px;
+      margin-bottom:15px;
+    }
+
+    .section-description{
+      color:#9696a2;
+      max-width:680px;
+      font-size:16px;
+      margin-bottom:42px;
+    }
+
+    /* COMO FUNCIONA */
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .step{
+      padding:30px;
+      background:linear-gradient(145deg,#111119,#0b0b11);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+    }
+
+    .step-number{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#7c3aed,#a855f7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      margin-bottom:20px;
+    }
+
+    .step h3{
+      margin-bottom:10px;
+      font-size:19px;
+    }
+
+    .step p{
+      color:#92929e;
+      font-size:14px;
+    }
+
+    /* JOGOS */
+
+    .games-section{
+      background:#09090e;
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .games-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .game{
+      height:380px;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      background:#111;
+      border:1px solid rgba(255,255,255,.09);
+      transition:.25s;
+    }
+
+    .game:hover{
+      transform:translateY(-6px);
+      border-color:rgba(168,85,247,.55);
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+    }
+
+    .game img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .game::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(0deg,rgba(0,0,0,.9),transparent 50%);
+    }
+
+    .game-info{
+      position:absolute;
+      z-index:2;
+      left:17px;
+      right:17px;
+      bottom:17px;
+    }
+
+    .game-info small{
+      color:#c084fc;
+      font-weight:900;
+      font-size:11px;
+    }
+
+    .game-info h3{
+      margin-top:3px;
+      font-size:17px;
+    }
+
+    /* BENEFITS */
+
+    .benefits{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      align-items:center;
+    }
+
+    .benefit-box{
+      background:linear-gradient(145deg,#111119,#0b0b11);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:35px;
+    }
+
+    .benefit{
+      display:flex;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .benefit:last-child{
+      margin-bottom:0;
+    }
+
+    .check{
+      min-width:35px;
+      height:35px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background:rgba(124,58,237,.17);
+      color:#c084fc;
+      font-weight:900;
+    }
+
+    .benefit h3{
+      font-size:16px;
+      margin-bottom:3px;
+    }
+
+    .benefit p{
+      color:#8f8f9a;
+      font-size:14px;
+    }
+
+    /* FEEDBACK */
+
+    .feedback-section{
+      background:#09090e;
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+      overflow:hidden;
+    }
+
+    .feedback-scroll{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding-bottom:18px;
+      scrollbar-width:thin;
+    }
+
+    .feedback{
+      flex:0 0 350px;
+      scroll-snap-align:start;
+      background:#111118;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      overflow:hidden;
+    }
+
+    .feedback img{
+      display:block;
+      width:100%;
+      height:520px;
+      object-fit:cover;
+      object-position:top;
+    }
+
+    .feedback-label{
+      padding:14px 16px;
+      color:#c7c7cf;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    /* OFFER */
+
+    .offer{
+      max-width:850px;
+      margin:auto;
+      border:1px solid rgba(168,85,247,.4);
+      background:
+        radial-gradient(circle at top,rgba(124,58,237,.22),transparent 45%),
+        #0d0d14;
+      border-radius:28px;
+      padding:50px;
+      text-align:center;
+      box-shadow:0 30px 90px rgba(0,0,0,.4);
+    }
+
+    .offer-badge{
+      display:inline-block;
+      padding:7px 13px;
+      border-radius:100px;
+      background:#7c3aed;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:20px;
+    }
+
+    .offer h2{
+      font-size:38px;
+      margin-bottom:8px;
+    }
+
+    .price-label{
+      color:#92929e;
+      margin-top:20px;
+      font-size:14px;
+    }
+
+    .price{
+      font-size:65px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-3px;
+      margin:8px 0 8px;
+    }
+
+    .price small{
+      font-size:22px;
+      letter-spacing:0;
+    }
+
+    .payment{
+      color:#aaaab3;
+      margin-bottom:28px;
+    }
+
+    .pix-box{
+      max-width:620px;
+      margin:25px auto 0;
+      background:#08080d;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      padding:22px;
+    }
+
+    .pix-box p{
+      color:#92929e;
+      font-size:13px;
+      margin-bottom:9px;
+    }
+
+    .pix-key{
+      font-family:monospace;
+      word-break:break-all;
+      background:#111118;
+      border:1px solid rgba(255,255,255,.08);
+      padding:15px;
+      border-radius:12px;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    .buy-buttons{
+      display:grid;
+      gap:10px;
+    }
+
+    .copy-btn{
+      width:100%;
+    }
+
+    .whatsapp{
+      width:100%;
+      background:#20b45a;
+      color:#fff;
+    }
+
+    .offer-note{
+      color:#777783;
+      font-size:12px;
+      margin-top:18px;
+    }
+
+    /* FAQ */
+
+    .faq{
+      max-width:850px;
+      margin:auto;
+    }
+
+    details{
+      background:#0e0e15;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      margin-bottom:10px;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding:20px;
+      font-weight:800;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    details p{
+      color:#92929e;
+      padding:0 20px 20px;
+      font-size:14px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.07);
+      padding:35px 0;
+      text-align:center;
+      color:#70707b;
+      font-size:13px;
+    }
+
+    .toast{
+      position:fixed;
+      z-index:999;
+      bottom:25px;
+      left:50%;
+      transform:translate(-50%,100px);
+      opacity:0;
+      background:#fff;
+      color:#111;
+      padding:12px 20px;
+      border-radius:12px;
+      font-size:14px;
+      font-weight:800;
+      transition:.3s;
+      box-shadow:0 15px 50px rgba(0,0,0,.5);
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translate(-50%,0);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+      .nav-links a:not(.nav-buy){
+        display:none;
+      }
+
+      .hero{
+        min-height:650px;
+      }
+
+      .hero-bg{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero-bg img:nth-child(3),
+      .hero-bg img:nth-child(4){
+        display:none;
+      }
+
+      .trust-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .trust-item{
+        border-bottom:1px solid rgba(255,255,255,.06);
+      }
+
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .games-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .benefits{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:560px){
+      section{
+        padding:65px 0;
+      }
+
+      .hero{
+        min-height:620px;
+      }
+
+      .hero-content{
+        padding:75px 0;
+      }
+
+      .hero h1{
+        letter-spacing:-2px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .hero-buttons{
+        display:grid;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .games-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+      }
+
+      .game{
+        height:270px;
+        border-radius:14px;
+      }
+
+      .game-info{
+        left:12px;
+        bottom:12px;
+      }
+
+      .game-info h3{
+        font-size:14px;
+      }
+
+      .feedback{
+        flex-basis:86%;
+      }
+
+      .feedback img{
+        height:auto;
+        max-height:620px;
+        object-fit:contain;
+        background:#050507;
+      }
+
+      .offer{
+        padding:32px 18px;
+        border-radius:20px;
+      }
+
+      .offer h2{
+        font-size:29px;
+      }
+
+      .price{
+        font-size:55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">RBX <span>IMPÉRIO</span></div>
+
+    <div class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#jogos">Destaques</a>
+      <a href="#feedbacks">Feedbacks</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="nav-buy" href="#comprar">GARANTIR AGORA</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+
+  <div class="hero-bg">
+    <img src="images/IMG_1862.jpeg" alt="">
+    <img src="images/IMG_1863.jpeg" alt="">
+    <img src="images/IMG_1865.jpeg" alt="">
+    <img src="images/IMG_1869.jpeg" alt="">
+  </div>
+
+  <div class="container hero-content">
+
+    <div class="badge">🎮 RBX IMPÉRIO</div>
+
+    <h1>
+      Um universo de jogos.<br>
+      <span>Em um só lugar.</span>
+    </h1>
+
+    <p>
+      Conheça o RBX Império, veja alguns dos títulos em destaque,
+      confira experiências compartilhadas por clientes e tenha acesso
+      ao nosso suporte e área exclusiva após a confirmação do pagamento.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#comprar" class="btn btn-primary">
+        GARANTIR AGORA — R$ 39,90
+      </a>
+
+      <a href="#feedbacks" class="btn btn-secondary">
+        VER FEEDBACKS
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<div class="trust">
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+      <strong>⚡ Processo simples</strong>
+      <span>Pagamento via Pix</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>💬 Suporte</strong>
+      <span>Atendimento pelo WhatsApp</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>🎮 Catálogo amplo</strong>
+      <span>Milhares de títulos catalogados</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>⭐ Feedbacks</strong>
+      <span>Experiências de clientes</span>
+    </div>
+
+  </div>
+</div>
+
+<section id="como-funciona">
+  <div class="container">
+
+    <div class="section-tag">Simples e rápido</div>
+    <h2 class="section-title">Como funciona?</h2>
+
+    <p class="section-description">
+      O processo foi organizado para você realizar o pagamento,
+      enviar a confirmação e receber as orientações de acesso.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Faça o pagamento</h3>
+        <p>
+          Copie a chave Pix disponível nesta página e realize
+          o pagamento de R$ 39,90 pelo aplicativo do seu banco.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Envie o comprovante</h3>
+        <p>
+          Após o pagamento, toque no botão do WhatsApp
+          e envie o comprovante para confirmação.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Receba o acesso</h3>
+        <p>
+          Depois da confirmação, você recebe as informações,
+          orientações e acesso à Área do Cliente RBX.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="games-section" id="jogos">
+  <div class="container">
+
+    <div class="section-tag">RBX Launcher</div>
+    <h2 class="section-title">Jogos em destaque</h2>
+
+    <p class="section-description">
+      Alguns dos títulos apresentados no catálogo e nas novidades do RBX.
+      A disponibilidade e compatibilidade podem variar.
+    </p>
+
+    <div class="games-grid">
+
+      <div class="game">
+        <img src="images/IMG_1862.jpeg" alt="Forza Horizon 6">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>Forza Horizon 6</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1863.jpeg" alt="Resident Evil Requiem">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>Resident Evil Requiem</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1864.jpeg" alt="PRAGMATA">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>PRAGMATA</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1865.jpeg" alt="Gears of War E-Day">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>Gears of War: E-Day</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1866.jpeg" alt="EA SPORTS FC 27">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>EA SPORTS FC 27</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1867.jpeg" alt="CONTROL Resonant">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>CONTROL Resonant</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1868.jpeg" alt="WARDOGS">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>WARDOGS</h3>
+        </div>
+      </div>
+
+      <div class="game">
+        <img src="images/IMG_1869.jpeg" alt="Halo Campaign Evolved">
+        <div class="game-info">
+          <small>DESTAQUE</small>
+          <h3>Halo: Campaign Evolved</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container benefits">
+
+    <div>
+      <div class="section-tag">Tudo organizado</div>
+
+      <h2 class="section-title">
+        Uma experiência feita para facilitar.
+      </h2>
+
+      <p class="section-description">
+        Área do cliente, tutoriais, novidades e suporte organizados
+        para facilitar o atendimento após a compra.
+      </p>
+    </div>
+
+    <div class="benefit-box">
+
+      <div class="benefit">
+        <div class="check">✓</div>
+        <div>
+          <h3>Área exclusiva do cliente</h3>
+          <p>Links, informações e recursos reunidos em uma única página.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="check">✓</div>
+        <div>
+          <h3>Tutoriais</h3>
+          <p>Conteúdo de orientação para ajudar durante a configuração.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="check">✓</div>
+        <div>
+          <h3>Suporte pelo WhatsApp</h3>
+          <p>Canal direto para dúvidas relacionadas ao serviço.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="check">✓</div>
+        <div>
+          <h3>Novidades do catálogo</h3>
+          <p>Veja títulos em destaque e atualizações apresentadas pelo RBX.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="feedback-section" id="feedbacks">
+  <div class="container">
+
+    <div class="section-tag">Experiências compartilhadas</div>
+    <h2 class="section-title">Veja os feedbacks</h2>
+
+    <p class="section-description">
+      Prints de conversas e experiências compartilhadas por clientes.
+      Arraste para o lado para ver mais.
+    </p>
+
+    <div class="feedback-scroll">
+
+      <div class="feedback">
+        <img src="images/IMG_1837.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1839.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1840.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1841.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1842.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1843.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1844.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1845.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1847.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+      <div class="feedback">
+        <img src="images/IMG_1848.jpeg" alt="Feedback de cliente">
+        <div class="feedback-label">Feedback de cliente ⭐</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="comprar">
+  <div class="container">
+
+    <div class="offer">
+
+      <div class="offer-badge">RBX IMPÉRIO</div>
+
+      <h2>Garanta seu acesso</h2>
+
+      <p class="price-label">VALOR ÚNICO</p>
+
+      <div class="price">
+        <small>R$</small> 39,90
+      </div>
+
+      <p class="payment">Pagamento via Pix</p>
+
+      <div class="pix-box">
+
+        <p>CHAVE PIX</p>
+
+        <div class="pix-key" id="pix">
+          81a321b1-d664-4ec2-85f9-866defbb31be
+        </div>
+
+        <div class="buy-buttons">
+
+          <button class="btn btn-primary copy-btn" onclick="copyPix()">
+            📋 COPIAR CHAVE PIX
+          </button>
+
+          <a
+            class="btn whatsapp"
+            href="https://wa.me/message/R4DSTU3V2E4IC1"
+            target="_blank"
+            rel="noopener"
+          >
+            ✓ JÁ PAGUEI — ENVIAR COMPROVANTE
+          </a>
+
+        </div>
+
+      </div>
+
+      <p class="offer-note">
+        Após realizar o Pix, envie o comprovante pelo botão acima.
+        O acesso é enviado após a confirmação do pagamento.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="container faq">
+
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Dúvidas frequentes</h2>
+
+    <p class="section-description">
+      Algumas informações importantes antes de realizar o pagamento.
+    </p>
+
+    <details>
+      <summary>Como faço para comprar?</summary>
+      <p>
+        O valor é R$ 39,90. Copie a chave Pix, faça o pagamento
+        e depois envie o comprovante pelo WhatsApp disponível nesta página.
+      </p>
+    </details>
+
+    <details>
+      <summary>Como recebo depois do pagamento?</summary>
+      <p>
+        Após a confirmação, você recebe pelo atendimento as orientações
+        e o acesso à Área do Cliente RBX.
+      </p>
+    </details>
+
+    <details>
+      <summary>Existe suporte?</summary>
+      <p>
+        Sim. O atendimento indicado nesta página pode ser utilizado
+        para dúvidas relacionadas ao acesso e às orientações fornecidas.
+      </p>
+    </details>
+
+    <details>
+      <summary>Os jogos mostrados na página são exemplos?</summary>
+      <p>
+        Sim. A seção apresenta títulos em destaque do catálogo.
+        Disponibilidade, requisitos e compatibilidade podem variar.
+      </p>
+    </details>
+
+    <details>
+      <summary>Qual é o valor?</summary>
+      <p>
+        O valor apresentado nesta página é R$ 39,90, com pagamento via Pix.
+      </p>
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 RBX Império • Todos os direitos reservados.<br><br>
+    As marcas e títulos mencionados pertencem aos seus respectivos proprietários.
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  ✓ Chave Pix copiada!
+</div>
+
+<script>
+  function copyPix(){
+    const pix = "81a321b1-d664-4ec2-85f9-866defbb31be";
+
+    navigator.clipboard.writeText(pix).then(function(){
+      const toast = document.getElementById("toast");
+
+      toast.classList.add("show");
+
+      setTimeout(function(){
+        toast.classList.remove("show");
+      }, 2200);
+    }).catch(function(){
+      const area = document.createElement("textarea");
+      area.value = pix;
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      document.body.removeChild(area);
+
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+
+      setTimeout(function(){
+        toast.classList.remove("show");
+      }, 2200);
+    });
+  }
+</script>
+
+</body>
+</html>
