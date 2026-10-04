@@ -766,6 +766,21 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
         font-size:46px;
       }
     }
+
+    /* POLIMENTO PROFISSIONAL */
+    .game, .feature, .step, .feedback, .offer{transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;}
+    .game:hover, .feature:hover, .step:hover{transform:translateY(-6px);border-color:rgba(168,85,247,.5);box-shadow:0 22px 55px rgba(126,34,206,.18);}
+    .hero-art img{transition:transform .55s ease, filter .35s ease;}
+    .hero-art img:hover{transform:scale(1.035);filter:brightness(1.08);}
+    .hero-art img:nth-child(2):hover, .hero-art img:nth-child(4):hover{transform:translateY(30px) scale(1.035);}
+    .btn-primary,.nav-btn{position:relative;overflow:hidden;}
+    .btn-primary:after,.nav-btn:after{content:"";position:absolute;inset:0;transform:translateX(-130%);background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22),transparent 70%);transition:transform .6s ease;}
+    .btn-primary:hover:after,.nav-btn:hover:after{transform:translateX(130%);}
+    .floating-buy{display:none;}
+    @media(max-width:600px){
+      body{padding-bottom:78px;}
+      .floating-buy{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:999;align-items:center;justify-content:center;min-height:56px;border-radius:14px;background:linear-gradient(135deg,var(--purple3),var(--purple2));color:#fff;font-weight:900;box-shadow:0 12px 40px rgba(126,34,206,.48);border:1px solid rgba(255,255,255,.14);}
+    }
   </style>
 </head>
 
@@ -1272,6 +1287,9 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
   </div>
 </section>
 
+
+
+<a href="#comprar" class="floating-buy">GARANTIR ACESSO • R$ 39,90</a>
 
 <footer>
   <div class="container">
