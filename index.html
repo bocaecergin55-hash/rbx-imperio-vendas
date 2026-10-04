@@ -800,6 +800,31 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       body{padding-bottom:78px;}
       .floating-buy{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:999;align-items:center;justify-content:center;min-height:56px;border-radius:14px;background:linear-gradient(135deg,var(--purple3),var(--purple2));color:#fff;font-weight:900;box-shadow:0 12px 40px rgba(126,34,206,.48);border:1px solid rgba(255,255,255,.14);}
     }
+
+    /* NOVA VERSAO - EXPERIENCIA / CARROSSEIS */
+    .marquee-wrap{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:#07060a;padding:18px 0}
+    .marquee{display:flex;gap:14px;width:max-content;animation:rbxscroll 38s linear infinite}
+    .marquee:hover{animation-play-state:paused}
+    .marquee img{width:155px;height:215px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    @keyframes rbxscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .experience-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+    .experience-card{background:linear-gradient(145deg,#100d18,#08070c);border:1px solid var(--border);border-radius:20px;padding:12px;overflow:hidden}
+    .experience-card img{width:100%;height:100%;min-height:320px;object-fit:cover;border-radius:14px;display:block}
+    .experience-copy{padding:28px;background:radial-gradient(circle at top right,rgba(168,85,247,.18),transparent 40%),#0d0a13;border:1px solid var(--border);border-radius:20px;display:flex;flex-direction:column;justify-content:center}
+    .experience-copy h3{font-size:30px;margin:8px 0 12px}.experience-copy p{color:var(--muted);margin-bottom:18px}.experience-copy ul{list-style:none;display:grid;gap:11px}.experience-copy li{padding:11px 13px;border-radius:10px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+    .shot-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.shot-row img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.1);cursor:zoom-in;transition:.25s}.shot-row img:hover{transform:translateY(-4px);border-color:rgba(168,85,247,.55)}
+    .mega-cta{margin-top:34px;padding:26px;border-radius:20px;text-align:center;background:linear-gradient(135deg,rgba(109,40,217,.22),rgba(168,85,247,.08));border:1px solid rgba(168,85,247,.3)}
+    .mega-cta strong{display:block;font-size:27px;margin-bottom:7px}.mega-cta span{color:var(--muted)}
+    @media(max-width:900px){.experience-grid{grid-template-columns:1fr}.shot-row{grid-template-columns:1fr}.marquee img{width:125px;height:175px}}
+
+    /* PLANOS */
+    .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:34px auto 0;align-items:stretch}
+    .plan-card{position:relative;padding:30px 25px;border-radius:22px;background:linear-gradient(155deg,#110d19,#08070c);border:1px solid rgba(255,255,255,.09);box-shadow:0 22px 60px rgba(0,0,0,.25);display:flex;flex-direction:column}
+    .plan-card.popular{border-color:rgba(168,85,247,.7);transform:translateY(-10px);box-shadow:0 25px 70px rgba(126,34,206,.22)}
+    .plan-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:7px 14px;border-radius:999px;background:linear-gradient(135deg,var(--purple3),var(--purple2));font-size:11px;font-weight:900;letter-spacing:.8px}
+    .plan-name{font-size:13px;font-weight:900;letter-spacing:1.7px;color:#c084fc;margin-bottom:8px}.plan-card h3{font-size:27px;margin-bottom:4px}.plan-games{color:var(--muted);font-size:14px;margin-bottom:20px}.plan-price{font-size:43px;font-weight:950;letter-spacing:-2px;margin:4px 0 20px}.plan-price small{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:0}.plan-list{list-style:none;display:grid;gap:10px;margin-bottom:25px;flex:1}.plan-list li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px;color:#ddd8e4}.plan-buy{display:flex;justify-content:center;align-items:center;min-height:52px;border-radius:12px;font-weight:900;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.plan-card.popular .plan-buy,.plan-card:last-child .plan-buy{background:linear-gradient(135deg,var(--purple3),var(--purple2));box-shadow:0 12px 30px rgba(126,34,206,.25)}
+    .plans-note{text-align:center;color:var(--muted);font-size:13px;margin:24px auto 0;max-width:720px}.after-pay{max-width:760px;margin:26px auto 0;padding:18px;border:1px solid rgba(37,211,102,.25);background:rgba(37,211,102,.055);border-radius:15px;text-align:center}.after-pay .whatsapp{margin-top:12px}
+    @media(max-width:900px){.plans-grid{grid-template-columns:1fr;max-width:560px}.plan-card.popular{transform:none;margin-top:10px}}
   </style>
 </head>
 
@@ -828,24 +853,24 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
       <p class="hero-text">
         Conheça o <strong>RBX Império</strong>: um programa desenvolvido
-        para reunir e organizar um catálogo com
-        <strong>mais de 40 mil títulos adicionais</strong>,
+        para reunir e organizar diferentes opções de catálogo,
+        com <strong>planos para diferentes perfis</strong>,
         oferecendo uma experiência simples para pesquisar,
         encontrar e gerenciar os títulos disponíveis no catálogo.
       </p>
 
       <div class="hero-points">
-        <div class="point">🎮 +40 mil títulos no catálogo</div>
+        <div class="point">🎮 Escolha o plano ideal</div>
         <div class="point">⚡ Acesso digital</div>
         <div class="point">🛠️ Suporte</div>
         <div class="point">📚 Tutoriais</div>
       </div>
 
-      <div class="price-label">ACESSO AO RBX IMPÉRIO</div>
+      <div class="price-label">PLANOS RBX IMPÉRIO</div>
 
       <div class="price">
-        R$ 39,90
-        <small>pagamento único</small>
+        R$ 12,90
+        <small>planos a partir de</small>
       </div>
 
       <div class="buttons">
@@ -861,10 +886,10 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
 
     <div class="hero-art">
-      <img src="images/IMG_1862.jpeg" alt="Jogo em destaque">
-      <img src="images/IMG_1863.jpeg" alt="Jogo em destaque">
-      <img src="images/IMG_1864.jpeg" alt="Jogo em destaque">
-      <img src="images/IMG_1865.jpeg" alt="Jogo em destaque">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" alt="Grand Theft Auto V">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg" alt="Marvel's Spider-Man Remastered">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg" alt="God of War">
     </div>
 
   </div>
@@ -877,13 +902,13 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
   <div class="container stats-grid">
 
     <div class="stat">
-      <strong>40 MIL+</strong>
-      <span>títulos no catálogo</span>
+      <strong>3 PLANOS</strong>
+      <span>escolha o ideal para você</span>
     </div>
 
     <div class="stat">
-      <strong>R$39,90</strong>
-      <span>pagamento único</span>
+      <strong>R$12,90</strong>
+      <span>planos a partir de</span>
     </div>
 
     <div class="stat">
@@ -896,6 +921,14 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       <span>área do cliente</span>
     </div>
 
+  </div>
+</div>
+
+<!-- CARROSSEL VISUAL -->
+<div class="marquee-wrap" aria-label="Mais jogos em destaque">
+  <div class="marquee">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg" alt="Hogwarts Legacy"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg" alt="The Last of Us Part I"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon 5"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/812140/header.jpg" alt="Assassin’s Creed Odyssey"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/381210/header.jpg" alt="Dead by Daylight"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg" alt="Baldur’s Gate 3"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg" alt="Sekiro"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg" alt="Call of Duty">
+    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg" alt="Hogwarts Legacy"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg" alt="The Last of Us Part I"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon 5"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/812140/header.jpg" alt="Assassin’s Creed Odyssey"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/381210/header.jpg" alt="Dead by Daylight"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg" alt="Baldur’s Gate 3"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg" alt="Sekiro"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg" alt="Call of Duty">
   </div>
 </div>
 
@@ -924,8 +957,8 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
         <div class="feature-icon">🎮</div>
         <h3>Catálogo gigante</h3>
         <p>
-          Explore um catálogo com mais de 40 mil títulos cadastrados
-          e encontre opções através do próprio programa.
+          Explore diferentes opções de catálogo conforme o plano escolhido
+          e encontre títulos através do próprio programa.
         </p>
       </div>
 
@@ -961,11 +994,11 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     <div class="section-head">
       <div class="eyebrow">CATÁLOGO RBX</div>
 
-      <h2>Alguns títulos em destaque</h2>
+      <h2>Mais títulos para explorar</h2>
 
       <p>
-        Confira alguns dos títulos apresentados no catálogo.
-        O RBX reúne milhares de títulos em uma única experiência.
+        Uma segunda seleção de destaques para você conhecer a variedade do catálogo,
+        sem repetir a vitrine principal.
       </p>
     </div>
 
@@ -1047,6 +1080,33 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 </section>
 
 
+<!-- EXPERIENCIA REAL -->
+<section id="experiencia">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">VEJA NA PRÁTICA</div>
+      <h2>Uma experiência feita para quem joga no PC.</h2>
+      <p>Veja exemplos reais da organização da biblioteca, páginas de títulos e gerenciamento de downloads.</p>
+    </div>
+    <div class="experience-grid">
+      <div class="experience-card"><img src="images/experiencia-biblioteca.png" alt="Exemplo de biblioteca organizada"></div>
+      <div class="experience-copy">
+        <div class="eyebrow">RBX IMPÉRIO</div>
+        <h3>Escolha a experiência que combina com você</h3>
+        <p>Pesquise, explore e organize títulos em uma interface pensada para facilitar a navegação e reunir informações em um só lugar.</p>
+        <ul><li>✓ Catálogo amplo e organizado</li><li>✓ Área exclusiva para clientes</li><li>✓ Tutoriais e orientações</li><li>✓ Suporte após a compra</li></ul>
+      </div>
+    </div>
+    <div class="shot-row">
+      <img src="images/experiencia-biblioteca.png" alt="Biblioteca de jogos">
+      <img src="images/experiencia-jogo.png" alt="Página de um título">
+      <img src="images/experiencia-downloads.png" alt="Gerenciamento de downloads">
+    </div>
+    <div class="mega-cta"><strong>Três opções. Uma experiência RBX.</strong><span>Planos a partir de R$12,90 • pagamento único.</span><div style="margin-top:18px"><a href="#comprar" class="btn btn-primary">VER PLANOS E PREÇOS</a></div></div>
+  </div>
+</section>
+
+
 <!-- COMO FUNCIONA -->
 
 <section>
@@ -1070,7 +1130,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
         <h3>Faça o pagamento</h3>
         <p>
           Clique no botão de pagamento para abrir a cobrança de
-          R$39,90 e concluir o pagamento.
+          o plano desejado e concluir o pagamento.
         </p>
       </div>
 
@@ -1161,92 +1221,71 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 </section>
 
 
-<!-- COMPRA -->
-
+<!-- COMPRA / PLANOS -->
 <section id="comprar">
   <div class="container">
-
-    <div class="offer">
-
-      <div class="eyebrow">RBX IMPÉRIO</div>
-
-      <h2>Garanta seu acesso</h2>
-
-      <p>
-        Pagamento único. Após a confirmação, você recebe
-        as instruções para acessar a Área do Cliente RBX.
-      </p>
-
-      <div class="offer-price">
-        R$ 39,90
-      </div>
-
-
-      <div class="offer-list">
-
-        <div class="offer-item">
-          ✓ Acesso ao programa RBX
-        </div>
-
-        <div class="offer-item">
-          ✓ Catálogo com mais de 40 mil títulos cadastrados
-        </div>
-
-        <div class="offer-item">
-          ✓ Área exclusiva para clientes
-        </div>
-
-        <div class="offer-item">
-          ✓ Tutoriais e orientações
-        </div>
-
-        <div class="offer-item">
-          ✓ Suporte pelo WhatsApp
-        </div>
-
-      </div>
-
-
-      <div class="pix-box">
-
-        <div class="pix-title">
-          PAGAMENTO • R$39,90
-        </div>
-
-        <p style="color:#aaa4b6;font-size:13px;">
-          Clique abaixo para abrir o pagamento com o valor de R$39,90 já definido.
-        </p>
-
-        <a
-          class="payment-link"
-          href="https://mpago.la/2jsJVrF"
-          target="_blank"
-          rel="noopener"
-        >
-          💳 PAGAR R$39,90 AGORA
-        </a>
-
-        <a
-          class="whatsapp"
-          href="https://wa.me/message/R4DSTU3V2E4IC1"
-          target="_blank"
-          rel="noopener"
-        >
-          ✓ JÁ PAGUEI — ENVIAR COMPROVANTE
-        </a>
-
-        <div class="payment-note">
-          Após o pagamento, envie o comprovante pelo WhatsApp.
-          O acesso é enviado após a confirmação.
-        </div>
-
-      </div>
-
+    <div class="section-head">
+      <div class="eyebrow">ESCOLHA SEU ACESSO</div>
+      <h2>Qual plano combina com você?</h2>
+      <p>Comece pelo plano que faz sentido para você. Pagamento único e acesso à mesma Área do Cliente RBX após a confirmação.</p>
     </div>
 
+    <div class="plans-grid">
+      <article class="plan-card">
+        <div class="plan-name">START</div>
+        <h3>Plano Start</h3>
+        <div class="plan-games">Opção de entrada • catálogo do plano</div>
+        <div class="plan-price">R$ 12,90 <small>pagamento único</small></div>
+        <ul class="plan-list">
+          <li>✓ Acesso ao programa correspondente ao plano</li>
+          <li>✓ Área do Cliente RBX</li>
+          <li>✓ Tutoriais e orientações</li>
+          <li>✓ Suporte após a compra</li>
+        </ul>
+        <a class="plan-buy" href="https://mpago.la/1HProF9" target="_blank" rel="noopener" onclick="trackCheckout('Start',12.90)">QUERO O START • R$12,90</a>
+      </article>
+
+      <article class="plan-card popular">
+        <div class="plan-tag">⭐ MAIS POPULAR</div>
+        <div class="plan-name">PRO</div>
+        <h3>Plano Pro</h3>
+        <div class="plan-games">Mais opções • catálogo ampliado</div>
+        <div class="plan-price">R$ 19,99 <small>pagamento único</small></div>
+        <ul class="plan-list">
+          <li>✓ Acesso ao programa correspondente ao plano</li>
+          <li>✓ Catálogo ampliado em relação ao Start</li>
+          <li>✓ Área do Cliente RBX</li>
+          <li>✓ Tutoriais e orientações</li>
+          <li>✓ Suporte após a compra</li>
+        </ul>
+        <a class="plan-buy" href="https://mpago.la/1u1yvjb" target="_blank" rel="noopener" onclick="trackCheckout('Pro',19.99)">QUERO O PRO • R$19,99</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">IMPÉRIO</div>
+        <h3>Plano Império</h3>
+        <div class="plan-games">Experiência completa • maior catálogo</div>
+        <div class="plan-price">R$ 39,90 <small>pagamento único</small></div>
+        <ul class="plan-list">
+          <li>✓ Acesso ao programa correspondente ao plano</li>
+          <li>✓ Maior opção de catálogo disponível</li>
+          <li>✓ Área do Cliente RBX</li>
+          <li>✓ Tutoriais e orientações</li>
+          <li>✓ Suporte após a compra</li>
+        </ul>
+        <a class="plan-buy" href="https://mpago.la/2jsJVrF" target="_blank" rel="noopener" onclick="trackCheckout('Imperio',39.90)">QUERO O IMPÉRIO • R$39,90</a>
+      </article>
+    </div>
+
+    <p class="plans-note">Os recursos e o catálogo podem variar conforme o plano escolhido. Confira a descrição antes de finalizar o pagamento.</p>
+
+    <div class="after-pay">
+      <strong>Já realizou o pagamento?</strong>
+      <p style="color:#aaa4b6;font-size:13px;margin-top:5px">Envie o comprovante para confirmação e recebimento das instruções.</p>
+      <a class="whatsapp" href="https://wa.me/message/R4DSTU3V2E4IC1" target="_blank" rel="noopener" onclick="trackContact()">✓ JÁ PAGUEI — ENVIAR COMPROVANTE</a>
+    </div>
   </div>
 </section>
-
 
 <!-- FAQ -->
 
@@ -1273,7 +1312,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       <details>
         <summary>Qual é o valor?</summary>
         <p>
-          O acesso custa R$39,90 em pagamento único.
+          Os planos começam em R$12,90 e variam conforme a opção escolhida. O pagamento é único.
         </p>
       </details>
 
@@ -1288,9 +1327,8 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       <details>
         <summary>O catálogo possui quantos títulos?</summary>
         <p>
-          O programa apresenta um catálogo com mais de 40 mil
-          títulos cadastrados. A disponibilidade e compatibilidade
-          podem variar conforme cada título.
+          O catálogo varia conforme o plano escolhido. A disponibilidade e compatibilidade
+          também podem variar conforme cada título.
         </p>
       </details>
 
@@ -1309,7 +1347,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
 
 
-<a href="#comprar" class="floating-buy">GARANTIR ACESSO • R$ 39,90</a>
+<a href="#comprar" class="floating-buy">VER PLANOS • A PARTIR DE R$ 12,90</a>
 
 <footer>
   <div class="container">
@@ -1318,5 +1356,12 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 </footer>
 
 
+
+<script>
+function trackCheckout(plan,value){
+  if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:'RBX '+plan,value:value,currency:'BRL'});}
+}
+function trackContact(){if(typeof fbq==='function'){fbq('track','Contact');}}
+</script>
 </body>
 </html>
