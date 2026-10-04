@@ -591,6 +591,25 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       cursor:pointer;
     }
 
+    .payment-link{
+      display:flex;
+      margin:16px auto 0;
+      max-width:420px;
+      background:linear-gradient(135deg,var(--purple3),var(--purple2));
+      color:white;
+      padding:16px;
+      border-radius:11px;
+      justify-content:center;
+      align-items:center;
+      font-weight:900;
+      box-shadow:0 12px 30px rgba(126,34,206,.28);
+      transition:.2s;
+    }
+
+    .payment-link:hover{
+      transform:translateY(-2px);
+    }
+
     .whatsapp{
       display:flex;
       margin:16px auto 0;
@@ -1050,8 +1069,8 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
         <div class="number">01</div>
         <h3>Faça o pagamento</h3>
         <p>
-          Utilize a chave PIX disponível nesta página para realizar
-          o pagamento único de R$39,90.
+          Clique no botão de pagamento para abrir a cobrança de
+          R$39,90 e concluir o pagamento.
         </p>
       </div>
 
@@ -1191,20 +1210,21 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       <div class="pix-box">
 
         <div class="pix-title">
-          PAGAMENTO VIA PIX
+          PAGAMENTO • R$39,90
         </div>
 
         <p style="color:#aaa4b6;font-size:13px;">
-          Copie a chave abaixo e realize o pagamento de R$39,90.
+          Clique abaixo para abrir o pagamento com o valor de R$39,90 já definido.
         </p>
 
-        <div class="pix-key" id="pix">
-          81a321b1-d664-4ec2-85f9-866defbb31be
-        </div>
-
-        <button class="copy" onclick="copiarPix()">
-          COPIAR CHAVE PIX
-        </button>
+        <a
+          class="payment-link"
+          href="https://mpago.la/2jsJVrF"
+          target="_blank"
+          rel="noopener"
+        >
+          💳 PAGAR R$39,90 AGORA
+        </a>
 
         <a
           class="whatsapp"
@@ -1212,7 +1232,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
           target="_blank"
           rel="noopener"
         >
-          ENVIAR COMPROVANTE NO WHATSAPP
+          ✓ JÁ PAGUEI — ENVIAR COMPROVANTE
         </a>
 
         <div class="payment-note">
@@ -1260,7 +1280,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       <details>
         <summary>Como envio meu comprovante?</summary>
         <p>
-          Depois de realizar o PIX, utilize o botão do WhatsApp
+          Depois de realizar o pagamento, utilize o botão do WhatsApp
           disponível nesta página para enviar o comprovante.
         </p>
       </details>
@@ -1297,25 +1317,6 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
   </div>
 </footer>
 
-
-<script>
-  function copiarPix(){
-    const chave = "81a321b1-d664-4ec2-85f9-866defbb31be";
-
-    navigator.clipboard.writeText(chave).then(() => {
-      const botao = document.querySelector(".copy");
-      const original = botao.innerText;
-
-      botao.innerText = "✓ PIX COPIADO";
-
-      setTimeout(() => {
-        botao.innerText = original;
-      }, 2200);
-    }).catch(() => {
-      alert("Chave PIX: " + chave);
-    });
-  }
-</script>
 
 </body>
 </html>
