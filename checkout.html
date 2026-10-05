@@ -493,15 +493,37 @@ async function consultarStatus(){
       status === "paid"
     ){
       box.className = "status aprovado";
-      box.textContent = "✓ Pagamento aprovado!";
+      box.textContent = "✓ Pagamento aprovado! Liberando seu acesso...";
 
       clearInterval(timerStatus);
 
-      /*
-        Depois ligaremos aqui a liberação
-        do acesso após confirmação segura
-        no servidor.
-      */
+      try{
+        const liberar = await fetch(
+          API + "/api/pix/liberar/" +
+          encodeURIComponent(referenciaAtual),
+          { method:"POST" }
+        );
+
+        const acesso = await liberar.json();
+
+        if(!liberar.ok || !acesso.ok || !acesso.redirect_url){
+          throw new Error(
+            acesso.error || "Não foi possível liberar o acesso."
+          );
+        }
+
+        box.textContent = "✓ Pagamento aprovado! Entrando na Área do Cliente...";
+
+        setTimeout(()=>{
+          window.location.href = acesso.redirect_url;
+        },1800);
+
+      }catch(e){
+        box.className = "status erro";
+        box.textContent =
+          "Pagamento aprovado, mas houve um erro ao abrir a Área do Cliente. Atualize a página para tentar novamente.";
+        console.error(e);
+      }
     }
 
   }catch(e){
