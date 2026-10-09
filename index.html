@@ -825,6 +825,14 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     .plan-name{font-size:13px;font-weight:900;letter-spacing:1.7px;color:#c084fc;margin-bottom:8px}.plan-card h3{font-size:27px;margin-bottom:4px}.plan-games{color:var(--muted);font-size:14px;margin-bottom:20px}.plan-price{font-size:43px;font-weight:950;letter-spacing:-2px;margin:4px 0 20px}.plan-price small{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:0}.plan-list{list-style:none;display:grid;gap:10px;margin-bottom:25px;flex:1}.plan-list li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px;color:#ddd8e4}.plan-buy{display:flex;justify-content:center;align-items:center;min-height:52px;border-radius:12px;font-weight:900;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.plan-card.popular .plan-buy,.plan-card:last-child .plan-buy{background:linear-gradient(135deg,var(--purple3),var(--purple2));box-shadow:0 12px 30px rgba(126,34,206,.25)}
     .plans-note{text-align:center;color:var(--muted);font-size:13px;margin:24px auto 0;max-width:720px}.after-pay{max-width:760px;margin:26px auto 0;padding:18px;border:1px solid rgba(37,211,102,.25);background:rgba(37,211,102,.055);border-radius:15px;text-align:center}.after-pay .whatsapp{margin-top:12px}
     @media(max-width:900px){.plans-grid{grid-template-columns:1fr;max-width:560px}.plan-card.popular{transform:none;margin-top:10px}}
+
+
+    /* VIDEO DEMONSTRATIVO NA VITRINE - sem alterar o layout */
+    .hero-video{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+    .hero-video-frame{width:min(100%,260px);aspect-ratio:9/16;overflow:hidden;border-radius:18px;border:2px solid rgba(168,85,247,.65);box-shadow:0 20px 55px rgba(0,0,0,.5),0 0 30px rgba(168,85,247,.16);background:#08060c}
+    .hero-video-frame iframe{display:block;width:100%;height:100%;border:0}
+    .hero-video-cta{width:min(100%,330px);text-align:center}
+    #comprar{scroll-margin-top:85px}
   </style>
 </head>
 
@@ -885,11 +893,11 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     </div>
 
 
-    <div class="hero-art">
-      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" alt="Grand Theft Auto V">
-      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
-      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg" alt="Marvel's Spider-Man Remastered">
-      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg" alt="God of War">
+    <div class="hero-video">
+      <div class="hero-video-frame">
+        <iframe src="https://www.youtube.com/embed/mttzFZrw0jU" title="Demonstração do launcher RBX Império" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <a href="#comprar" class="btn btn-primary hero-video-cta">🎮 ADQUIRA SEU PACOTE</a>
     </div>
 
   </div>
@@ -1275,8 +1283,8 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
     <div class="after-pay">
       <strong>Precisa de ajuda?</strong>
-      <p style="color:#aaa4b6;font-size:13px;margin-top:5px">O pagamento é confirmado automaticamente. Se tiver algum problema, fale com o suporte.</p>
-      <a class="whatsapp" href="https://wa.me/message/R4DSTU3V2E4IC1" target="_blank" rel="noopener" onclick="trackContact()">💬 FALAR COM O SUPORTE</a>
+      <p style="color:#aaa4b6;font-size:13px;margin-top:5px">O pagamento é confirmado automaticamente. Se quiser saber mais antes de comprar ou precisar de ajuda, fale com a gente.</p>
+      <a class="whatsapp" href="https://wa.me/message/R4DSTU3V2E4IC1" target="_blank" rel="noopener" onclick="trackContact()">💬 TIRAR DÚVIDAS PELO WHATSAPP</a>
     </div>
   </div>
 </section>
