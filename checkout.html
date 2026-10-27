@@ -234,6 +234,11 @@ input:focus{border-color:#8b5cf6}
     <strong>COMBO IMPÉRIO</strong>
     <span>R$ 49,90</span>
   </div>
+
+  <div class="plano" data-plano="retro" data-valor="14.90" data-nome="Império Retrô — somente Retrô">
+    <strong>IMPÉRIO RETRÔ</strong>
+    <span>R$ 14,90</span>
+  </div>
 </div>
 
 <label>Nome</label>
@@ -519,6 +524,8 @@ async function consultarStatus(){
 
         box.textContent = acesso.plano === "combo"
           ? "✓ Pagamento aprovado! Abrindo seu Combo Império no Drive..."
+          : acesso.plano === "retro"
+          ? "✓ Pagamento aprovado! Abrindo o download do Império Retrô..."
           : "✓ Pagamento aprovado! Entrando na Área do Cliente...";
 
         setTimeout(()=>{
@@ -541,4 +548,5 @@ async function consultarStatus(){
 
 </body>
 </html>
+
 
