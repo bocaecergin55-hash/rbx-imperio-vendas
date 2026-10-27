@@ -63,7 +63,7 @@ input:focus{border-color:#8b5cf6}
 
 .planos{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:10px;
   margin-bottom:22px;
 }
@@ -228,6 +228,11 @@ input:focus{border-color:#8b5cf6}
   <div class="plano" data-plano="imperio" data-valor="39.90" data-nome="Império">
     <strong>IMPÉRIO</strong>
     <span>R$ 39,90</span>
+  </div>
+
+  <div class="plano" data-plano="combo" data-valor="49.90" data-nome="Combo Império — Steam + Retrô">
+    <strong>COMBO IMPÉRIO</strong>
+    <span>R$ 49,90</span>
   </div>
 </div>
 
@@ -512,7 +517,9 @@ async function consultarStatus(){
           );
         }
 
-        box.textContent = "✓ Pagamento aprovado! Entrando na Área do Cliente...";
+        box.textContent = acesso.plano === "combo"
+          ? "✓ Pagamento aprovado! Abrindo seu Combo Império no Drive..."
+          : "✓ Pagamento aprovado! Entrando na Área do Cliente...";
 
         setTimeout(()=>{
           window.location.href = acesso.redirect_url;
@@ -521,7 +528,7 @@ async function consultarStatus(){
       }catch(e){
         box.className = "status erro";
         box.textContent =
-          "Pagamento aprovado, mas houve um erro ao abrir a Área do Cliente. Atualize a página para tentar novamente.";
+          "Pagamento aprovado, mas houve um erro ao abrir seu acesso. Atualize a página para tentar novamente.";
         console.error(e);
       }
     }
@@ -534,3 +541,4 @@ async function consultarStatus(){
 
 </body>
 </html>
+
