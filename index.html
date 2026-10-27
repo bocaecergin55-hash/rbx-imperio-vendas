@@ -864,6 +864,29 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #c8
 
 /* Comparação dos pacotes e bônus de catálogo */
 .plan-games{min-height:43px}.plan-trial{padding:15px;border:1px solid #b99bff30;background:#b99bff08;border-radius:12px;margin-bottom:20px}.plan-trial strong{display:block;font-size:9px;letter-spacing:.8px;color:#d3bfff;line-height:1.5}.plan-trial p{font-size:11px;color:#b9b1c9;line-height:1.7;margin-top:8px}.plan-full{border-color:#82d4a42b;background:#82d4a406}.plan-full strong{color:#a3dfbd}.plan-list li{line-height:1.6}
+
+/* Launchers juntos na entrada, com ações abaixo de cada vídeo */
+.hero{min-height:0;padding:40px 0 50px}
+.hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:28px;max-width:1020px}
+.hero .product-intro{text-align:center;max-width:760px;margin:0 auto}
+.hero .product-intro h1{font-size:clamp(30px,4vw,48px);line-height:1.12;margin:16px 0 12px;letter-spacing:-1.6px}
+.hero .product-intro .hero-text{max-width:620px;margin:0 auto}
+.hero .product-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch;width:100%}
+.hero .product-videos .hero-video{order:initial;max-width:none;margin:0;padding:24px 20px;gap:16px;min-width:0}
+.hero .product-videos .hero-video-frame{width:min(100%,240px);min-width:0;aspect-ratio:9/16;flex-shrink:0}
+.hero .product-videos .hero-video-cta{width:100%;max-width:340px;min-height:50px;text-align:center;white-space:normal;line-height:1.4;margin-top:auto}
+.hero .product-price{font-size:13px;color:var(--muted);text-align:center}
+.hero .product-price strong{display:block;font-size:25px;letter-spacing:-.6px;color:var(--text);margin-top:4px}
+.hero .product-combo-link{text-align:center;color:#c9afff;font-size:14px;line-height:1.6;justify-self:center}
+@media(max-width:600px){
+ .hero{padding:26px 0 38px}
+ .hero .hero-grid{gap:22px}
+ .hero .product-videos{grid-template-columns:minmax(0,1fr);gap:20px}
+ .hero .product-videos .hero-video{padding:22px 16px}
+ .hero .product-videos .hero-video-frame{width:min(100%,240px)}
+ .hero .product-intro .hero-text{font-size:14px}
+}
+
 </style>
 </head>
 
@@ -881,50 +904,38 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #c8
 
 <header class="hero" id="inicio">
   <div class="container hero-grid">
-
-    <div>
-      <div class="badge">🎮 RBX IMPÉRIO • ACESSO DIGITAL</div>
-
-      <h1>
-        Sua próxima aventura
-        <span>começa no Império.</span>
-      </h1>
-
-      <p class="hero-text">Explore o catálogo, encontre sua próxima aventura e escolha seu acesso. <strong>Uma experiência para quem vive os jogos no PC.</strong></p>
-
-      <div class="hero-points">
-        <div class="point">🎮 Escolha o plano ideal</div>
-        <div class="point">⚡ Acesso digital</div>
-        <div class="point">🛠️ Suporte</div>
-        <div class="point">📚 Tutoriais</div>
-      </div>
-
-      <div class="price-label">PLANOS RBX IMPÉRIO</div>
-
-      <div class="price">
-        R$ 12,90
-        <small>planos a partir de</small>
-      </div>
-
-      <div class="buttons">
-        <a href="#comprar" class="btn btn-primary">
-          QUERO GARANTIR MEU ACESSO
-        </a>
-
-        <a href="#jogos" class="btn btn-secondary">
-          VER DESTAQUES
-        </a>
-      </div>
+    <div class="product-intro">
+      <div class="badge">RBX IMPÉRIO • STEAM E RETRÔ</div>
+      <h1>Sua próxima aventura <span>começa no Império.</span></h1>
+      <p class="hero-text">Conheça os dois launchers em ação e escolha o seu.</p>
     </div>
-
-
-    <div class="hero-video" id="demonstracao"><div class="video-intro"><div class="eyebrow">VEJA O APLICATIVO EM AÇÃO</div><h2>Conheça o RBX por dentro.</h2><p>Assista à demonstração e veja como usar o aplicativo.</p></div>
-      <div class="hero-video-frame">
-        <iframe src="https://www.youtube.com/embed/mttzFZrw0jU" title="Demonstração do launcher RBX Império" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <a href="#comprar" class="btn btn-primary hero-video-cta">🎮 ADQUIRA SEU PACOTE</a>
+    <div class="product-videos">
+      <article class="hero-video" id="demonstracao" aria-labelledby="steam-demo-title">
+        <div class="video-intro">
+          <div class="eyebrow">LAUNCHER STEAM</div>
+          <h2 id="steam-demo-title">RBX Império Steam</h2>
+          <p>Veja o aplicativo funcionando.</p>
+        </div>
+        <div class="hero-video-frame">
+          <iframe src="https://www.youtube.com/embed/mttzFZrw0jU" title="Demonstração do launcher RBX Império Steam" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="product-price">A partir de <strong>R$ 12,90</strong></div>
+        <a href="#comprar" class="btn btn-primary hero-video-cta">COMPRAR LAUNCHER STEAM</a>
+      </article>
+      <article class="hero-video" id="demonstracao-retro" aria-labelledby="retro-demo-title">
+        <div class="video-intro">
+          <div class="eyebrow">LAUNCHER RETRÔ</div>
+          <h2 id="retro-demo-title">RBX Império Retrô</h2>
+          <p>Reviva os clássicos dos videogames.</p>
+        </div>
+        <div class="hero-video-frame">
+          <iframe src="https://www.youtube.com/embed/wXaJs7DSr9g" title="Demonstração do launcher RBX Império Retrô" loading="eager" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="product-price">Pagamento único <strong>R$ 14,90</strong></div>
+        <a href="checkout.html?plano=retro" class="btn btn-primary hero-video-cta" onclick="trackCheckout('Imperio Retro',14.90)">COMPRAR LAUNCHER RETRÔ</a>
+      </article>
     </div>
-
+    <a class="product-combo-link" href="#combo-imperio">Quer os dois? Conheça o Combo Império por R$ 49,90 →</a>
   </div>
 </header>
 
@@ -1422,5 +1433,6 @@ document.querySelectorAll('img').forEach(function(img){img.addEventListener('err
 </script>
 </body>
 </html>
+
 
 
