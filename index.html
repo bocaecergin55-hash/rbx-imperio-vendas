@@ -22,7 +22,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>RBX Império | Sua Biblioteca de Jogos no PC sem Pagar Fortuna</title>
+  <title>RBX Império | Sua Biblioteca de Jogos de PC sem Pagar Fortuna</title>
   <meta name="description" content="Tenha acesso aos maiores lançamentos de PC direto na sua Steam com total segurança e economia. Acesso vitalício a partir de R$ 5,00.">
 
   <style>
@@ -55,9 +55,9 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at 50% 0%, rgba(107,33,223,0.28), transparent 40%),
-        radial-gradient(circle at 90% 40%, rgba(0,240,255,0.08), transparent 30%),
-        var(--bg);
+        linear-gradient(rgba(5,5,9,0.85), rgba(5,5,9,0.95)),
+        url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg') no-repeat center center fixed;
+      background-size:cover;
       color:var(--text);
       line-height:1.5;
       overflow-x:hidden;
@@ -114,7 +114,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       background:linear-gradient(135deg, var(--purple3), var(--purple2));
       color:#fff;
       border-radius:10px;
-      font-size:22px;
+      font-size:20px;
       box-shadow:0 0 15px var(--glow);
     }
 
@@ -238,7 +238,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     }
 
     .hero-video{
-      background:linear-gradient(145deg, rgba(22,19,38,0.9), rgba(12,10,22,0.9));
+      background:linear-gradient(145deg, rgba(22,19,38,0.92), rgba(12,10,22,0.92));
       border:1px solid var(--border);
       border-radius:22px;
       padding:24px;
@@ -246,7 +246,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       flex-direction:column;
       align-items:center;
       gap:16px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.4);
+      box-shadow:0 20px 50px rgba(0,0,0,0.6);
       transition:transform 0.3s, border-color 0.3s;
     }
 
@@ -356,7 +356,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     .stats{
       border-top:1px solid rgba(255,255,255,0.08);
       border-bottom:1px solid rgba(255,255,255,0.08);
-      background:rgba(11,10,18,0.8);
+      background:rgba(11,10,18,0.9);
     }
 
     .stats-grid{
@@ -391,7 +391,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     .marquee-wrap{
       overflow:hidden;
       border-bottom:1px solid rgba(255,255,255,0.06);
-      background:#040407;
+      background:rgba(4,4,7,0.9);
       padding:18px 0;
     }
 
@@ -424,6 +424,11 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
     section{
       padding:80px 0;
+      background:rgba(8,7,14,0.85);
+      backdrop-filter:blur(10px);
+      margin:20px 0;
+      border-radius:24px;
+      border:1px solid rgba(184,112,255,0.08);
     }
 
     .section-head{
@@ -444,7 +449,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       font-size:16px;
     }
 
-    /* COMPARISON VS PIRACY SECTION */
+    /* SAFETY COMPARE GRID */
 
     .safety-compare-grid{
       display:grid;
@@ -463,12 +468,12 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
     .compare-box.bad{
       border-color:rgba(255,77,77,0.3);
-      background:linear-gradient(145deg, rgba(30,10,10,0.5), #0f0d1a);
+      background:linear-gradient(145deg, rgba(30,10,10,0.7), #0f0d1a);
     }
 
     .compare-box.good{
       border-color:rgba(37,211,102,0.4);
-      background:linear-gradient(145deg, rgba(10,35,20,0.5), #0f0d1a);
+      background:linear-gradient(145deg, rgba(10,35,20,0.7), #0f0d1a);
       box-shadow:0 0 30px rgba(37,211,102,0.1);
     }
 
@@ -493,10 +498,10 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
       gap:10px;
     }
 
-    /* RECEIPT COMPARISON (STEAM VS RBX) */
+    /* RECEIPT COMPARISON */
 
     .comparison-section{
-      background:radial-gradient(ellipse at 5% 50%, rgba(107,33,223,0.15), transparent 55%);
+      background:radial-gradient(ellipse at 5% 50%, rgba(107,33,223,0.25), rgba(8,7,14,0.9));
       border-top:1px solid rgba(255,255,255,0.05);
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
@@ -527,7 +532,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     .comparison-offer{
       margin-top:24px;
       padding:28px;
-      background:linear-gradient(130deg, rgba(40,25,65,0.8), #120e1f);
+      background:linear-gradient(130deg, rgba(40,25,65,0.9), #120e1f);
       border:1px solid var(--border);
       border-radius:20px;
       box-shadow:0 20px 50px rgba(0,0,0,0.4);
@@ -728,7 +733,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     /* GAMES GRID */
 
     .games-section{
-      background:#07060b;
+      background:rgba(7,6,11,0.9);
       border-top:1px solid rgba(255,255,255,0.05);
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
@@ -839,7 +844,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
     /* FEEDBACKS */
 
     .feedback-section{
-      background:#07060b;
+      background:rgba(7,6,11,0.9);
     }
 
     .feedbacks{
@@ -1139,7 +1144,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 <nav>
   <div class="nav-inner">
     <a href="#inicio" class="logo" aria-label="RBX Império início">
-      <span class="brand-mark" aria-hidden="true">♛</span> RBX <span>IMPÉRIO</span>
+      <span class="brand-mark" aria-hidden="true">🐰</span> RBX <span>IMPÉRIO</span>
     </a>
     <div class="nav-links">
       <a href="#seguranca">Segurança</a>
@@ -1687,7 +1692,7 @@ src="https://www.facebook.com/tr?id=4647417052244525&ev=PageView&noscript=1"
 
 <footer>
   <div class="container">
-    <a href="#inicio" class="logo">RBX <span>IMPÉRIO</span></a>
+    <a href="#inicio" class="logo"><span class="brand-mark" aria-hidden="true">🐰</span> RBX <span>IMPÉRIO</span></a>
     <p style="margin-top:12px">© 2026 RBX Império • Todos os direitos reservados.</p>
     <p style="margin-top:6px;font-size:11px">Steam e as marcas dos jogos pertencem aos seus respectivos titulares.</p>
   </div>
