@@ -35,6 +35,7 @@ input:focus{border-color:#8b5cf6}
 .voltar{color:#aaa;text-decoration:none;display:inline-block;margin-top:18px;font-size:13px}
 @media(max-width:800px){.container{grid-template-columns:1fr}.planos{grid-template-columns:1fr}}
 body{background:radial-gradient(ellipse at top left,#28133e,#08090d 65%)}.card{border-radius:18px;border-color:#ffffff20}button{transition:transform .2s}button:hover{transform:translateY(-2px)}
+.checkout-original{display:block;color:#a99cb9;margin-top:8px;font-size:11px}.checkout-original del{color:#c5b7d3}
 </style>
 </head>
 <body>
@@ -47,16 +48,16 @@ body{background:radial-gradient(ellipse at top left,#28133e,#08090d 65%)}.card{b
 <h2>Finalize seu pedido</h2>
 <div class="planos">
   <div class="plano ativo" data-plano="start" data-valor="5.00" data-nome="Start">
-    <strong>START</strong><span>R$ 5,00</span>
+    <strong>START</strong><small class="checkout-original">De <del>R$ 10,00</del> por</small><span>R$ 5,00</span>
   </div>
   <div class="plano" data-plano="pro" data-valor="10.00" data-nome="Pro">
-    <strong>PRO</strong><span>R$ 10,00</span>
+    <strong>PRO</strong><small class="checkout-original">De <del>R$ 20,00</del> por</small><span>R$ 10,00</span>
   </div>
   <div class="plano" data-plano="imperio" data-valor="20.00" data-nome="Império">
-    <strong>IMPÉRIO</strong><span>R$ 20,00</span>
+    <strong>IMPÉRIO</strong><small class="checkout-original">De <del>R$ 40,00</del> por</small><span>R$ 20,00</span>
   </div>
   <div class="plano" data-plano="combo" data-valor="30.00" data-nome="Combo Império — Steam + Retrô">
-    <strong>COMBO IMPÉRIO</strong><span>R$ 30,00</span>
+    <strong>COMBO IMPÉRIO</strong><small class="checkout-original">De <del>R$ 50,00</del> por</small><span>R$ 30,00</span>
   </div>
   <div class="plano" data-plano="retro" data-valor="14.90" data-nome="Império Retrô — somente Retrô">
     <strong>IMPÉRIO RETRÔ</strong><span>R$ 14,90</span>
@@ -239,7 +240,7 @@ async function consultarStatus(){
  try{ofertaCombo=JSON.parse(localStorage.getItem('rbx_combo5_v1'));}catch{}
  if(!ofertaTokenAtivo()){note.textContent='Oferta indisponível ou encerrada. O Combo custa R$ 30,00.';return;}
  ofertaAplicada=true;const combo=document.querySelector('[data-plano="combo"]');combo.dataset.valor='25.00';combo.querySelector('span').textContent='R$ 25,00 · oferta';selecionarPlano(combo);
- const timer=setInterval(function(){if(referenciaAtual){note.textContent='Desconto garantido no Pix gerado. Pague dentro da validade do pedido.';clearInterval(timer);return;}const left=Math.max(0,Math.ceil((ofertaCombo.expiresAt-Date.now())/1000));if(!left){encerrarOferta();clearInterval(timer);return;}note.textContent='Combo de R$ 30 por R$ 25. Gere seu Pix em '+String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0')+'.';},1000);
+ const timer=setInterval(function(){if(referenciaAtual){note.textContent='Desconto garantido no Pix gerado. Pague dentro da validade do pedido.';clearInterval(timer);return;}const left=Math.max(0,Math.ceil((ofertaCombo.expiresAt-Date.now())/1000));if(!left){encerrarOferta();clearInterval(timer);return;}note.textContent='Combo de R$ 50 por R$ 25. Gere seu Pix em '+String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0')+'.';},1000);
 })();
 </script>
 </body>
