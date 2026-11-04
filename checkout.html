@@ -34,6 +34,7 @@ input:focus{border-color:#8b5cf6}
 .aprovado{background:#082615;color:#4ade80}.erro{margin-top:12px;color:#f87171;font-size:14px}
 .voltar{color:#aaa;text-decoration:none;display:inline-block;margin-top:18px;font-size:13px}
 @media(max-width:800px){.container{grid-template-columns:1fr}.planos{grid-template-columns:1fr}}
+body{background:radial-gradient(ellipse at top left,#28133e,#08090d 65%)}.card{border-radius:18px;border-color:#ffffff20}button{transition:transform .2s}button:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
@@ -92,6 +93,15 @@ input:focus{border-color:#8b5cf6}
 </main>
 <script>
 const API = "https://rbx-imperio-key-server.onrender.com";
+let ofertaAplicada = false;
+let ofertaCombo = null;
+function ofertaTokenAtivo(){return ofertaCombo && Number.isFinite(ofertaCombo.expiresAt) && Date.now() < ofertaCombo.expiresAt ? ofertaCombo.token : undefined;}
+function encerrarOferta(){
+  const combo = document.querySelector('[data-plano="combo"]');
+  ofertaCombo = null;
+  if(combo){combo.dataset.valor="30.00";combo.querySelector('span').textContent="R$ 30,00";if(plano==="combo")selecionarPlano(combo);}
+  const note=document.getElementById('oferta-checkout');if(note)note.textContent="Oferta encerrada. Combo disponível por R$ 30,00.";
+}
 let plano = "start";
 let valor = "5.00";
 let nomePlano = "Start";
@@ -131,12 +141,17 @@ botao.addEventListener("click", async ()=>{
     erro.textContent = "Preencha nome, sobrenome e e-mail.";
     return;
   }
+  if (plano === "combo" && ofertaAplicada && !ofertaTokenAtivo()) {
+    encerrarOferta();
+    erro.textContent = "A oferta terminou. Confira o novo valor de R$ 30,00 antes de gerar outro Pix.";
+    return;
+  }
   botao.disabled = true;
   botao.textContent = "GERANDO PIX...";
   try{
     const resposta = await fetch(API + "/api/pix/criar",{
       method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({plano,nome,sobrenome,email,telefone})
+      body:JSON.stringify({plano,nome,sobrenome,email,telefone,oferta_token:plano === "combo" ? ofertaTokenAtivo() : undefined})
     });
     const data = await resposta.json();
     if(!resposta.ok || !data.ok){
@@ -144,6 +159,9 @@ botao.addEventListener("click", async ()=>{
     }
     if(!data.qr_code || !data.qr_code_base64){
       throw new Error("O Mercado Pago não retornou o QR Code.");
+    }
+    if (!data.plano || Number(data.plano.valor) !== Number(valor)) {
+      throw new Error("O valor retornado é diferente do apresentado. Não pague este pedido e fale com o suporte.");
     }
     referenciaAtual = data.external_reference;
     document.getElementById("codigoPix").value = data.qr_code;
@@ -212,6 +230,17 @@ async function consultarStatus(){
     }
   }catch(e){console.log("Aguardando nova consulta...");}
 }
+</script>
+
+<script>
+(function(){
+ if(new URLSearchParams(location.search).get('oferta')!=='combo5')return;
+ const note=document.createElement('p');note.id='oferta-checkout';note.style.cssText='padding:14px;border:1px solid #bb8aff;border-radius:10px;color:#e4caff;margin:0 0 18px;font-size:13px';document.querySelector('.planos').before(note);
+ try{ofertaCombo=JSON.parse(localStorage.getItem('rbx_combo5_v1'));}catch{}
+ if(!ofertaTokenAtivo()){note.textContent='Oferta indisponível ou encerrada. O Combo custa R$ 30,00.';return;}
+ ofertaAplicada=true;const combo=document.querySelector('[data-plano="combo"]');combo.dataset.valor='25.00';combo.querySelector('span').textContent='R$ 25,00 · oferta';selecionarPlano(combo);
+ const timer=setInterval(function(){if(referenciaAtual){note.textContent='Desconto garantido no Pix gerado. Pague dentro da validade do pedido.';clearInterval(timer);return;}const left=Math.max(0,Math.ceil((ofertaCombo.expiresAt-Date.now())/1000));if(!left){encerrarOferta();clearInterval(timer);return;}note.textContent='Combo de R$ 30 por R$ 25. Gere seu Pix em '+String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0')+'.';},1000);
+})();
 </script>
 </body>
 </html>
