@@ -46,38 +46,22 @@ body{background:radial-gradient(ellipse at top left,#28133e,#08090d 65%)}.card{b
 <main class="container">
 <section class="card" id="formCard">
 <h2>Finalize seu pedido</h2>
-<div class="planos">
-  <div class="plano ativo" data-plano="start" data-valor="5.00" data-nome="Start">
-    <strong>START</strong><small class="checkout-original">De <del>R$ 10,00</del> por</small><span>R$ 5,00</span>
-  </div>
-  <div class="plano" data-plano="pro" data-valor="10.00" data-nome="Pro">
-    <strong>PRO</strong><small class="checkout-original">De <del>R$ 20,00</del> por</small><span>R$ 10,00</span>
-  </div>
-  <div class="plano" data-plano="imperio" data-valor="20.00" data-nome="Império">
-    <strong>IMPÉRIO</strong><small class="checkout-original">De <del>R$ 40,00</del> por</small><span>R$ 20,00</span>
-  </div>
-  <div class="plano" data-plano="combo" data-valor="30.00" data-nome="Combo Império — Steam + Retrô">
-    <strong>COMBO IMPÉRIO</strong><small class="checkout-original">De <del>R$ 50,00</del> por</small><span>R$ 30,00</span>
-  </div>
-  <div class="plano" data-plano="retro" data-valor="14.90" data-nome="Império Retrô — somente Retrô">
-    <strong>IMPÉRIO RETRÔ</strong><span>R$ 14,90</span>
-  </div>
-</div>
+<div class="planos"><div class="plano ativo" data-plano="start" data-valor="14.90" data-nome="Básico"><strong>BÁSICO</strong><span>R$ 14,90</span></div><div class="plano " data-plano="pro" data-valor="19.90" data-nome="Pro"><strong>PRO</strong><span>R$ 19,90</span></div><div class="plano " data-plano="imperio" data-valor="34.90" data-nome="Império + RBX Retrô de brinde"><strong>IMPÉRIO + RBX RETRÔ DE BRINDE</strong><small class="checkout-original">De <del>R$ 64,90</del> por</small><span>R$ 34,90</span></div></div>
 <label>Nome</label><input id="nome" placeholder="Seu nome">
 <label>Sobrenome</label><input id="sobrenome" placeholder="Seu sobrenome">
 <label>E-mail</label><input id="email" type="email" placeholder="seuemail@exemplo.com">
 <label>WhatsApp</label><input id="telefone" inputmode="numeric" placeholder="(31) 99999-9999">
 <div class="pix"><div class="pix-badge">PIX</div><div><strong>Pagamento via Pix</strong><br><small style="color:#999">QR Code e Pix Copia e Cola</small></div></div>
-<button class="btn" id="gerarPix">GERAR PIX • R$ 5,00</button>
+<button class="btn" id="gerarPix">GERAR PIX • R$ 14,90</button>
 <div class="erro" id="erro"></div>
 </section>
 <section class="card">
 <div id="resumo">
   <h2>Resumo do pedido</h2>
   <div class="resumo-linha"><span>Produto</span><strong>RBX Império</strong></div>
-  <div class="resumo-linha"><span>Plano</span><strong id="resumoPlano">Start</strong></div>
+  <div class="resumo-linha"><span>Plano</span><strong id="resumoPlano">Básico</strong></div>
   <div class="resumo-linha"><span>Pagamento</span><strong>Pix</strong></div>
-  <div class="total"><strong>Total</strong><strong id="resumoValor">R$ 5,00</strong></div>
+  <div class="total"><strong>Total</strong><strong id="resumoValor">R$ 14,90</strong></div>
   <div class="info">Após gerar o Pix, faça o pagamento pelo aplicativo do seu banco. A página verificará automaticamente o status da transação.</div>
 </div>
 <div id="areaPix">
@@ -94,18 +78,9 @@ body{background:radial-gradient(ellipse at top left,#28133e,#08090d 65%)}.card{b
 </main>
 <script>
 const API = "https://rbx-imperio-key-server.onrender.com";
-let ofertaAplicada = false;
-let ofertaCombo = null;
-function ofertaTokenAtivo(){return ofertaCombo && Number.isFinite(ofertaCombo.expiresAt) && Date.now() < ofertaCombo.expiresAt ? ofertaCombo.token : undefined;}
-function encerrarOferta(){
-  const combo = document.querySelector('[data-plano="combo"]');
-  ofertaCombo = null;
-  if(combo){combo.dataset.valor="30.00";combo.querySelector('span').textContent="R$ 30,00";if(plano==="combo")selecionarPlano(combo);}
-  const note=document.getElementById('oferta-checkout');if(note)note.textContent="Oferta encerrada. Combo disponível por R$ 30,00.";
-}
 let plano = "start";
-let valor = "5.00";
-let nomePlano = "Start";
+let valor = "14.90";
+let nomePlano = "Básico";
 let referenciaAtual = null;
 let timerStatus = null;
 const planos = document.querySelectorAll(".plano");
@@ -127,7 +102,8 @@ function selecionarPlano(el){
 planos.forEach(el=>{
   el.addEventListener("click",()=>selecionarPlano(el));
 });
-const parametro = new URLSearchParams(location.search).get("plano");
+let parametro = new URLSearchParams(location.search).get("plano");
+if(parametro === "combo") parametro = "imperio";
 if(parametro){
   const encontrado = document.querySelector(`.plano[data-plano="${parametro}"]`);
   if(encontrado) selecionarPlano(encontrado);
@@ -142,17 +118,12 @@ botao.addEventListener("click", async ()=>{
     erro.textContent = "Preencha nome, sobrenome e e-mail.";
     return;
   }
-  if (plano === "combo" && ofertaAplicada && !ofertaTokenAtivo()) {
-    encerrarOferta();
-    erro.textContent = "A oferta terminou. Confira o novo valor de R$ 30,00 antes de gerar outro Pix.";
-    return;
-  }
   botao.disabled = true;
   botao.textContent = "GERANDO PIX...";
   try{
     const resposta = await fetch(API + "/api/pix/criar",{
       method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({plano,nome,sobrenome,email,telefone,oferta_token:plano === "combo" ? ofertaTokenAtivo() : undefined})
+      body:JSON.stringify({plano,nome,sobrenome,email,telefone,})
     });
     const data = await resposta.json();
     if(!resposta.ok || !data.ok){
@@ -217,8 +188,8 @@ async function consultarStatus(){
         if(!liberar.ok || !acesso.ok || !acesso.redirect_url){
           throw new Error(acesso.error || "Não foi possível liberar o acesso.");
         }
-        box.textContent = acesso.plano === "combo"
-          ? "✓ Pagamento aprovado! Abrindo seu Combo Império no Drive..."
+        box.textContent = (acesso.plano === "combo" || acesso.plano === "imperio")
+          ? "✓ Pagamento aprovado! Abrindo seu Plano Império com o RBX Retrô de brinde..."
           : acesso.plano === "retro"
           ? "✓ Pagamento aprovado! Abrindo o download do Império Retrô..."
           : "✓ Pagamento aprovado! Entrando na Área do Cliente...";
@@ -233,15 +204,6 @@ async function consultarStatus(){
 }
 </script>
 
-<script>
-(function(){
- if(new URLSearchParams(location.search).get('oferta')!=='combo5')return;
- const note=document.createElement('p');note.id='oferta-checkout';note.style.cssText='padding:14px;border:1px solid #bb8aff;border-radius:10px;color:#e4caff;margin:0 0 18px;font-size:13px';document.querySelector('.planos').before(note);
- try{ofertaCombo=JSON.parse(localStorage.getItem('rbx_combo5_v1'));}catch{}
- if(!ofertaTokenAtivo()){note.textContent='Oferta indisponível ou encerrada. O Combo custa R$ 30,00.';return;}
- ofertaAplicada=true;const combo=document.querySelector('[data-plano="combo"]');combo.dataset.valor='25.00';combo.querySelector('span').textContent='R$ 25,00 · oferta';selecionarPlano(combo);
- const timer=setInterval(function(){if(referenciaAtual){note.textContent='Desconto garantido no Pix gerado. Pague dentro da validade do pedido.';clearInterval(timer);return;}const left=Math.max(0,Math.ceil((ofertaCombo.expiresAt-Date.now())/1000));if(!left){encerrarOferta();clearInterval(timer);return;}note.textContent='Combo de R$ 50 por R$ 25. Gere seu Pix em '+String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0')+'.';},1000);
-})();
-</script>
+
 </body>
 </html>
